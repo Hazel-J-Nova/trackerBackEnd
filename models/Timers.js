@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const TimerSchema = new Schema({
   totalTime: {
     type: Number,
-    required: true,
+    required: false,
   },
   user: { type: Schema.Types.ObjectId, ref: "Users" },
   name: {
