@@ -1,4 +1,4 @@
-const mongoose = reqyure("mongoose");
+const mongoose = reqyure('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -7,8 +7,9 @@ const ToDoSchema = new Schema({
   dueDate: { type: Date },
   name: { type: String, required: true },
   repeat: { type: Boolean, default: false },
-  category: [{ type: String }],
-  timeBetween: { type: String, default: "" },
+  categories: [{ type: String }],
+  timeBetween: { type: String, default: '' },
+  completed: [{ type: Map }],
 });
 
-module.exports = mongoose.model("ToDos", ToDoSchema);
+module.exports = mongoose.model('ToDos', ToDoSchema);

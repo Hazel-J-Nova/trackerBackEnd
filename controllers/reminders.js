@@ -42,7 +42,15 @@ module.exports.getOneReminder = async(req,res)=>{
     res.send(reminder)
 }
 
-modyle.exports.getReminder = async (req,res )=>{
+module.exports.getReminder = async (req,res )=>{
     const allReminders = await Reminders.find({})
     res.send(allReminders)
+}
+
+module.exports.deleteReminder = async (req,res)=>{
+    const {reminderId} = req.body
+    const deletedReminder = await Reminders.findByIdAndDelete(reminderId)
+    const reminderJob = schedule.scheduledJobs.reminderId
+    await reminderJob.cancel()
+    res.send(deletedReminder)
 }

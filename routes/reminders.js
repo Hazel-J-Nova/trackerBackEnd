@@ -5,4 +5,5 @@ Router.route('/reminder').get(reminders.getAllReminder);
 
 Router.route('/reminder/:reminderId')
   .get(reminders.getOneReminder)
-  .post(reminders.createReminder);
+  .post(reminders.createReminder)
+  .delete(reminders.deleteReminder);
