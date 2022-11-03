@@ -9,6 +9,10 @@ const RemindersSchema = new Schema({
   timeTillRepeat: { type: String, default: '' },
   name: { type: String, default: '' },
   active: { type: Boolean, default: true },
+  message: {
+    type: String,
+    default: '',
+  },
 });
 
 module.exports = mongoose.model('Reminders', RemindersSchema);

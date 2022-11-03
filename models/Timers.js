@@ -1,20 +1,20 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
 const TimerSchema = new Schema({
   totalTime: {
     type: Number,
-    required: false,
   },
-  user: { type: Schema.Types.ObjectId, ref: "Users" },
+  user: { type: Schema.Types.ObjectId, ref: 'Users' },
   name: {
     type: String,
-    default: "",
+    default: '',
   },
   startTime: { type: Date, default: Date.now() },
   endTime: { type: Date, required: false },
-  active: { types: Boolean, default: false },
+  active: { type: Boolean, default: false },
+  pausedTime: { type: Date, required: false },
 });
 
-module.exports = mongoose.model("Timers", TimerSchema);
+module.exports = mongoose.model('Timers', TimerSchema);

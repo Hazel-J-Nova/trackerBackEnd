@@ -12,4 +12,8 @@ const ToDoSchema = new Schema({
   completed: [{ type: Map }],
 });
 
+ToDoSchema.statics.deleteById = function (_id) {
+  return this.deleteOne({ _id: _id });
+};
+
 module.exports = mongoose.model('ToDos', ToDoSchema);
